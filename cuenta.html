@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Venta de Cuenta | Mari's Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* ===== FONDO ANIMADO ===== */
+      body {
+        min-height: 100vh;
+        background: linear-gradient(-45deg, #0f001f, #140028, #001a2e, #2b0038);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* ===== CONTENEDOR ===== */
+      .container {
+        width: 100%;
+        max-width: 900px;
+        padding: 35px;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        box-shadow: 0 0 40px rgba(111, 214, 255, 0.25);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #6fd6ff, #ff5fb2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* ===== FORMULARIO ===== */
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        margin-bottom: 10px;
+        outline: none;
+      }
+
+      .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-top: 25px;
+        padding: 15px;
+        width: 100%;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #6fd6ff, #ff4fa3);
+        color: #fff;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 79, 163, 0.6);
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Formulario Venta de Cuenta</h1>
+
+      <form id="accountForm">
+        <label>Poder de la cuenta</label>
+        <input type="text" id="power" required />
+
+        <label>Cantidad de tropas</label>
+        <input type="text" id="troops" required />
+
+        <label>% Ataque Infantería</label>
+        <input type="text" id="infantry" required />
+
+        <label>% Ataque Artillería</label>
+        <input type="text" id="artillery" required />
+
+        <label>% Ataque Caballería</label>
+        <input type="text" id="cavalry" required />
+
+        <label>% Ataque Mixto</label>
+        <input type="text" id="mixed" required />
+
+        <label>¿Tiene héroes de paga?</label>
+        <select id="paidHeroes">
+          <option value="No">No</option>
+          <option value="Sí">Sí</option>
+        </select>
+
+        <div id="heroesExtra" class="hidden">
+          <label>¿Cuántos héroes de paga?</label>
+          <input type="text" id="heroCount" />
+
+          <label>Color de los héroes</label>
+          <input type="text" id="heroColor" />
+        </div>
+
+        <label>Investigaciones (puede seleccionar varias)</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" value="Economía" /> Economía</label>
+          <label><input type="checkbox" value="Muralla" /> Muralla</label>
+          <label><input type="checkbox" value="Ejército" /> Ejército</label>
+          <label><input type="checkbox" value="Cazería" /> Cazería</label>
+          <label
+            ><input type="checkbox" value="Mejora Muralla" /> Mejora
+            Muralla</label
+          >
+          <label
+            ><input type="checkbox" value="Mejora Ejército" /> Mejora
+            Ejército</label
+          >
+          <label
+            ><input type="checkbox" value="Liderazgo Ejército" /> Liderazgo
+            Ejército</label
+          >
+          <label
+            ><input type="checkbox" value="Comando Militar" /> Comando
+            Militar</label
+          >
+          <label
+            ><input type="checkbox" value="Mounstritos" /> Mounstritos</label
+          >
+          <label
+            ><input type="checkbox" value="Combate Mounstritos" /> Combate
+            Mounstritos</label
+          >
+          <label><input type="checkbox" value="Sigilos" /> Sigilos</label>
+          <label><input type="checkbox" value="Maravillas" /> Maravillas</label>
+          <label><input type="checkbox" value="Equipo" /> Equipo</label>
+          <label
+            ><input type="checkbox" value="Maravillas Avanzadas" /> Maravillas
+            Avanzadas</label
+          >
+          <label><input type="checkbox" value="Mana" /> Mana</label>
+        </div>
+
+        <label>Cantidad de mounstritos activos en batalla</label>
+        <input type="text" id="monsters" required />
+
+        <label>Tipo de cuenta</label>
+        <select id="tier">
+          <option value="P1">P1</option>
+          <option value="P2">P2</option>
+          <option value="P3">P3</option>
+        </select>
+
+        <label>Enviar a:</label>
+        <select id="admin">
+          <option value="5492932445245">Mariana</option>
+          <option value="33768349928">Ailin</option>
+        </select>
+
+        <button type="submit">Enviar Información</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const paidHeroes = document.getElementById("paidHeroes");
+        const heroesExtra = document.getElementById("heroesExtra");
+
+        paidHeroes.addEventListener("change", function () {
+          heroesExtra.style.display = this.value === "Sí" ? "block" : "none";
+        });
+
+        document
+          .getElementById("accountForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let investigaciones = [];
+            document
+              .querySelectorAll('input[type="checkbox"]:checked')
+              .forEach((cb) => {
+                investigaciones.push(cb.value);
+              });
+
+            let confirmacion = confirm(
+              "IMPORTANTE:\n\n" +
+                "Las imágenes NO se envían automáticamente.\n" +
+                "Después de abrir WhatsApp deberás adjuntarlas manualmente.\n\n" +
+                "¿Deseas continuar?"
+            );
+
+            if (!confirmacion) return;
+
+            const mensaje =
+              "VENTA DE CUENTA\n\n" +
+              "Poder: " +
+              document.getElementById("power").value +
+              "\n" +
+              "Tropas: " +
+              document.getElementById("troops").value +
+              "\n" +
+              "Infantería: " +
+              document.getElementById("infantry").value +
+              "%\n" +
+              "Artillería: " +
+              document.getElementById("artillery").value +
+              "%\n" +
+              "Caballería: " +
+              document.getElementById("cavalry").value +
+              "%\n" +
+              "Mixto: " +
+              document.getElementById("mixed").value +
+              "%\n" +
+              "Héroes de paga: " +
+              paidHeroes.value +
+              "\n" +
+              "Cantidad héroes: " +
+              (document.getElementById("heroCount").value || "N/A") +
+              "\n" +
+              "Color héroes: " +
+              (document.getElementById("heroColor").value || "N/A") +
+              "\n" +
+              "Investigaciones: " +
+              investigaciones.join(", ") +
+              "\n" +
+              "Mounstritos activos: " +
+              document.getElementById("monsters").value +
+              "\n" +
+              "Tipo: " +
+              document.getElementById("tier").value;
+
+            const telefono = document.getElementById("admin").value;
+            window.location.href =
+              "https://wa.me/" +
+              telefono +
+              "?text=" +
+              encodeURIComponent(mensaje);
+          });
+      });
+    </script>
+  </body>
+</html>

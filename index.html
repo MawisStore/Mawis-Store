@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mari's Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo1.png" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* ====== HERO ====== */
+      .hero {
+        min-height: 100vh;
+        background: url("fondo.jpeg") center/cover no-repeat;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      /* ====== NAVBAR ====== */
+      .navbar {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 70px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 28px;
+        font-weight: 700;
+        color: #ff7ac8;
+      }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+      }
+
+      .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .menu a:hover {
+        color: #ff7ac8;
+      }
+
+      .btn-support {
+        background: linear-gradient(135deg, #ff4fa3, #ff86c8);
+        padding: 10px 22px;
+        border-radius: 30px;
+        color: #fff !important;
+        font-weight: 600;
+      }
+
+      /* ====== HERO CONTENT ====== */
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 0 80px;
+        gap: 40px;
+      }
+
+      .dragon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .dragon img {
+        max-width: 420px;
+        filter: drop-shadow(0 0 40px rgba(255, 105, 180, 0.6));
+        background: transparent;
+        border-radius: 0;
+      }
+
+      .hero-text h1 {
+        font-size: 64px;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #ff5fb2, #ffc1e6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-text p {
+        font-size: 20px;
+        color: #ddd;
+        margin-bottom: 30px;
+        max-width: 520px;
+      }
+
+      .btn-catalogo {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff4fa3, #ff86c8);
+        padding: 14px 35px;
+        border-radius: 30px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+      }
+
+      /* ====== ADMIN ====== */
+      .admin-section {
+        position: relative;
+        z-index: 3;
+        margin: 40px auto 60px;
+        width: 85%;
+        background: rgba(0, 0, 0, 0.35); /* más transparente */
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+        border-radius: 25px;
+        padding: 25px;
+      }
+
+      .admin-title {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+        color: #ffb3de;
+      }
+
+      .admins {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .admin-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.25); /* más glass */
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        transition: 0.3s;
+      }
+
+      .admin-card:hover {
+        background: rgba(0, 0, 0, 0.18);
+        transform: translateY(-4px);
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.25);
+      }
+
+      .admin-card img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: transparent;
+      }
+
+      .admin-info h3 {
+        font-size: 22px;
+        margin-bottom: 5px;
+        color: #ffc6e8;
+      }
+
+      .admin-info p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.75); /* números más suaves */
+      }
+
+      /* ====== RESPONSIVE ====== */
+      @media (max-width: 900px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .dragon {
+          order: -1;
+        }
+
+        .hero-text h1 {
+          font-size: 44px;
+        }
+
+        .admins {
+          grid-template-columns: 1fr;
+        }
+
+        .navbar {
+          padding: 20px 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="overlay"></div>
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <div class="logo">👑 Mawi's Store</div>
+        <div class="menu">
+          <a href="#">Inicio</a>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="#contacto">Contacto</a>
+          <a href="soporte.html">Soporte</a>
+          <a href="soporte.html" class="btn-support">Soporte</a>
+        </div>
+      </nav>
+
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
+        <div class="dragon">
+          <img src="dragon.png" alt="Dragon" />
+        </div>
+
+        <div class="hero-text">
+          <h1>MÁS ALLÁ DE<br />LO ORDINARIO</h1>
+          <p>Potencia tus victorias con nuestros bots y cuentas premium.</p>
+          <a href="catalogo.html" class="btn-catalogo">Catálogo</a>
+        </div>
+      </div>
+
+      <!-- ADMIN -->
+      <div class="admin-section" id="contacto">
+        <div class="admin-title">ADMIN</div>
+        <div class="admins">
+          <div class="admin-card">
+            <img src="allin.png" alt="Allin" />
+            <div class="admin-info">
+              <h3>Allin ❤️</h3>
+              <p>+33 768 849 928</p>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <img src="mariana.png" alt="Mariana" />
+            <div class="admin-info">
+              <h3>Mariana ❤️</h3>
+              <p>+549 2932 445 245</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

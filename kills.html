@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kills | Mawi's Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #050010;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      .hero {
+        min-height: 100vh;
+        background: radial-gradient(circle at top, #2a003f, #050010 70%);
+        position: relative;
+        padding-bottom: 80px;
+      }
+      .stars {
+        position: absolute;
+        inset: 0;
+        background: url("img/fondo.jpeg") center/cover repeat;
+        opacity: 0.25;
+      }
+
+      .navbar {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 70px;
+      }
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ff5fb2, #8ad6ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: 500;
+      }
+
+      .section-title {
+        text-align: center;
+        margin: 60px 0 30px;
+        font-size: 42px;
+        background: linear-gradient(135deg, #6fd6ff, #ff5fb2, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .grid {
+        width: 90%;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .card {
+        background: rgba(10, 0, 25, 0.45);
+        border: 2px solid rgba(138, 214, 255, 0.35);
+        border-radius: 26px;
+        padding: 30px;
+        text-align: center;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 0 40px rgba(138, 214, 255, 0.15);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+
+      .kill-amount {
+        font-size: 28px;
+        font-weight: 700;
+        color: #bfe9ff;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #ffd1ea;
+      }
+
+      .buy-btn {
+        background: linear-gradient(135deg, #6fd6ff, #ff4fa3);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+
+      .modal-box {
+        background: rgba(5, 0, 20, 0.9);
+        border-radius: 26px;
+        padding: 30px;
+        width: 90%;
+        max-width: 420px;
+        text-align: center;
+        position: relative;
+      }
+
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      .admin-btn {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 25px;
+        border: none;
+        background: linear-gradient(135deg, #6fd6ff, #ff4fa3);
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .cancel-btn {
+        margin-top: 15px;
+        background: transparent;
+        border: 1px solid #8ad6ff;
+        color: #cceeff;
+        padding: 10px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="stars"></div>
+
+      <nav class="navbar">
+        <div class="logo">💎 Mari’s Store</div>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="diamantes.html">Diamantes</a>
+          <a href="pases.html">Pases</a>
+        </div>
+      </nav>
+
+      <h2 class="section-title">Kills K1 - K1699</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="kill-amount">1B</div>
+          <div class="price">$11.00 USD</div>
+          <button class="buy-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="kill-amount">700M</div>
+          <div class="price">$9.00 USD</div>
+          <button class="buy-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="kill-amount">500M</div>
+          <div class="price">$7.00 USD</div>
+          <button class="buy-btn">Comprar</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Kills K1700 - K1780</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="kill-amount">1B</div>
+          <div class="price">$12.00 USD</div>
+          <button class="buy-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="kill-amount">700M</div>
+          <div class="price">$10.00 USD</div>
+          <button class="buy-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="kill-amount">500M</div>
+          <div class="price">$8.00 USD</div>
+          <button class="buy-btn">Comprar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div class="modal-box">
+        <div class="close">✖</div>
+        <h2>Selecciona un admin</h2>
+        <p id="productName"></p>
+
+        <button class="admin-btn" data-phone="5492932445245">Mariana</button>
+        <button class="admin-btn" data-phone="33768349928">Ailin</button>
+
+        <button class="cancel-btn">Cancelar</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let selectedProduct = "";
+        const modal = document.getElementById("modal");
+        const productName = document.getElementById("productName");
+
+        document.querySelectorAll(".buy-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const card = this.closest(".card");
+            const amount = card.querySelector(".kill-amount").innerText;
+            const price = card.querySelector(".price").innerText;
+            selectedProduct = "Kills " + amount + " - " + price;
+            productName.innerText = "Producto: " + selectedProduct;
+            modal.style.display = "flex";
+          });
+        });
+
+        document
+          .querySelector(".close")
+          .addEventListener("click", () => (modal.style.display = "none"));
+        document
+          .querySelector(".cancel-btn")
+          .addEventListener("click", () => (modal.style.display = "none"));
+
+        document.querySelectorAll(".admin-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            if (!selectedProduct) return;
+            const phone = this.getAttribute("data-phone");
+            const mensaje =
+              "Hola, quiero comprar: " +
+              selectedProduct +
+              " | Kills - Maris Store";
+            window.location.href =
+              "https://wa.me/" + phone + "?text=" + encodeURIComponent(mensaje);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

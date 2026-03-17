@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gemas | Mawi's Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="logo1.png" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        min-height: 100vh;
+        background: url("fondo.jpeg") center/cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+      }
+
+      .gemas-card {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 800px;
+        padding: 50px;
+        border-radius: 30px;
+        backdrop-filter: blur(18px);
+        background: rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 50px rgba(255, 105, 180, 0.25);
+        text-align: center;
+      }
+
+      .gemas-title {
+        font-size: 42px;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #ff6ac1, #ffc9eb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .sub-title {
+        font-size: 16px;
+        opacity: 0.7;
+        margin-bottom: 30px;
+      }
+
+      .lista-precios {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .precio-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 20px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .buy-btn {
+        margin-top: 20px;
+        padding: 14px 35px;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        background: linear-gradient(135deg, #ff4fa3, #ff86c8);
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+      }
+
+      /* MODAL */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+
+      .modal-content {
+        background: #111;
+        padding: 40px;
+        border-radius: 25px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        width: 90%;
+        max-width: 400px;
+      }
+
+      .modal input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 15px;
+        border: none;
+        margin: 15px 0;
+      }
+
+      .modal button {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(135deg, #ff4fa3, #ff86c8);
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="overlay"></div>
+
+      <div class="gemas-card">
+        <div class="gemas-title">💎 GEMAS 100K</div>
+        <div class="sub-title">K1 - K1809</div>
+
+        <div class="lista-precios">
+          <div class="precio-item"><span>0 - 390M</span><span>$3,90</span></div>
+          <div class="precio-item">
+            <span>391 - 790M</span><span>$4,00</span>
+          </div>
+          <div class="precio-item">
+            <span>791 - 1090M</span><span>$4,10</span>
+          </div>
+          <div class="precio-item">
+            <span>1091 - 1390M</span><span>$4,30</span>
+          </div>
+          <div class="precio-item">
+            <span>1391 - 2490M</span><span>$4,40</span>
+          </div>
+        </div>
+
+        <button class="buy-btn" onclick="abrirModal()">Comprar</button>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h3>Ingresa tu poder actual</h3>
+        <input
+          type="number"
+          id="poderJugador"
+          placeholder="Ejemplo: 850000000"
+        />
+        <button onclick="continuarCompra()">Continuar</button>
+        <button onclick="cerrarModal()">Cancelar</button>
+      </div>
+    </div>
+
+    <script>
+      let poderGlobal = 0;
+      let precioFinal = "";
+
+      function abrirModal() {
+        document.getElementById("modal").style.display = "flex";
+      }
+
+      function cerrarModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      function continuarCompra() {
+        let poder = parseInt(document.getElementById("poderJugador").value);
+
+        if (!poder || poder <= 0) {
+          alert("Ingresa un poder válido");
+          return;
+        }
+
+        poderGlobal = poder;
+
+        if (poder <= 390000000) {
+          precioFinal = "$3,90";
+        } else if (poder <= 790000000) {
+          precioFinal = "$4,00";
+        } else if (poder <= 1090000000) {
+          precioFinal = "$4,10";
+        } else if (poder <= 1390000000) {
+          precioFinal = "$4,30";
+        } else {
+          precioFinal = "$4,40";
+        }
+
+        elegirPersona();
+      }
+
+      function elegirPersona() {
+        let mensaje = encodeURIComponent(
+          "Hola 👑 quiero comprar GEMAS 100K 💎\n\n" +
+            "Mi poder actual es: " +
+            poderGlobal +
+            "\n" +
+            "Precio correspondiente: " +
+            precioFinal
+        );
+
+        let opcion = confirm(
+          "¿Enviar a Mariana?\nAceptar = Mariana\nCancelar = Ailin"
+        );
+
+        let numero = opcion ? "5492932445245" : "33768349928";
+
+        window.open("https://wa.me/" + numero + "?text=" + mensaje, "_blank");
+
+        cerrarModal();
+      }
+    </script>
+  </body>
+</html>

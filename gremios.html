@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Venta de Gremio | Mawi's Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(-45deg, #0f001f, #140028, #001a2e, #2b0038);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        width: 100%;
+        max-width: 900px;
+        padding: 35px;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        box-shadow: 0 0 40px rgba(111, 214, 255, 0.25);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #6fd6ff, #ff5fb2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        margin-bottom: 10px;
+        outline: none;
+      }
+
+      button {
+        margin-top: 25px;
+        padding: 15px;
+        width: 100%;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #6fd6ff, #ff4fa3);
+        color: #fff;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 79, 163, 0.6);
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Formulario Venta de Gremio</h1>
+
+      <form id="guildForm">
+        <label>Nombre del gremio</label>
+        <input type="text" id="guildName" required />
+
+        <label>Etiqueta</label>
+        <input type="text" id="guildTag" required />
+
+        <label>Nivel de regalo</label>
+        <input type="text" id="giftLevel" required />
+
+        <label>Cantidad de miembros</label>
+        <input type="text" id="members" required />
+
+        <h3>Eventos del Gremio</h3>
+
+        <label><input type="checkbox" id="fiesta" /> Fiesta de Gremios</label>
+        <div id="fiestaLiga" class="hidden">
+          <select id="ligaFiesta">
+            <option value="">Seleccionar liga</option>
+            <option>Principiante</option>
+            <option>Intermedia</option>
+            <option>Avanzada</option>
+            <option>Experto</option>
+            <option>Maestro</option>
+          </select>
+        </div>
+
+        <label><input type="checkbox" id="arena" /> Arena de Gremios</label>
+        <div id="arenaLiga" class="hidden">
+          <select id="ligaArena">
+            <option value="">Seleccionar liga</option>
+            <option>Principiante</option>
+            <option>Intermedia</option>
+            <option>Avanzada</option>
+            <option>Experto</option>
+            <option>Maestro</option>
+          </select>
+        </div>
+
+        <label><input type="checkbox" id="desafio" /> Desafío Gremial</label>
+        <div id="desafioLiga" class="hidden">
+          <select id="ligaDesafio">
+            <option value="">Seleccionar liga</option>
+            <option>Principiante</option>
+            <option>Intermedia</option>
+            <option>Avanzada</option>
+            <option>Experto</option>
+            <option>Maestro</option>
+          </select>
+        </div>
+
+        <label
+          ><input type="checkbox" id="expedicion" /> Expedición de
+          Gremios</label
+        >
+        <div id="expedicionDiv" class="hidden">
+          <select id="divisionExpedicion">
+            <option value="">Seleccionar división</option>
+            <option>División 1</option>
+            <option>División 2</option>
+            <option>División 3</option>
+            <option>División 4</option>
+            <option>División 5</option>
+            <option>División 6</option>
+          </select>
+        </div>
+
+        <label
+          ><input type="checkbox" id="campeonato" /> Campeonato de
+          Gremios</label
+        >
+        <div id="campeonatoDiv" class="hidden">
+          <select id="divisionCampeonato">
+            <option value="">Seleccionar división</option>
+            <option>División 1</option>
+            <option>División 2</option>
+            <option>División 3</option>
+            <option>División 4</option>
+            <option>División 5</option>
+            <option>División 6</option>
+            <option>División 7</option>
+            <option>División 8</option>
+            <option>División 9</option>
+            <option>División 10</option>
+            <option>División 11</option>
+            <option>División 12</option>
+            <option>División 13</option>
+            <option>División 14</option>
+            <option>División 15</option>
+          </select>
+        </div>
+
+        <label>¿Tiene marco de gremio?</label>
+        <select id="marco">
+          <option value="No">No</option>
+          <option value="Sí">Sí</option>
+        </select>
+
+        <div id="marcoNombre" class="hidden">
+          <label>¿Cuál marco?</label>
+          <input type="text" id="marcoDetalle" />
+        </div>
+
+        <label>Enviar a:</label>
+        <select id="admin">
+          <option value="5492932445245">Mariana</option>
+          <option value="33768349928">Ailin</option>
+        </select>
+
+        <button type="submit">Enviar Información</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function toggleCheckbox(idCheckbox, idDiv) {
+          document
+            .getElementById(idCheckbox)
+            .addEventListener("change", function () {
+              document.getElementById(idDiv).style.display = this.checked
+                ? "block"
+                : "none";
+            });
+        }
+
+        toggleCheckbox("fiesta", "fiestaLiga");
+        toggleCheckbox("arena", "arenaLiga");
+        toggleCheckbox("desafio", "desafioLiga");
+        toggleCheckbox("expedicion", "expedicionDiv");
+        toggleCheckbox("campeonato", "campeonatoDiv");
+
+        document
+          .getElementById("marco")
+          .addEventListener("change", function () {
+            document.getElementById("marcoNombre").style.display =
+              this.value === "Sí" ? "block" : "none";
+          });
+
+        document
+          .getElementById("guildForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (
+              !confirm(
+                "Las imágenes deben enviarse aparte por WhatsApp si son necesarias.\n\n¿Deseas continuar?"
+              )
+            )
+              return;
+
+            let mensaje =
+              "VENTA DE GREMIO\n\n" +
+              "Nombre: " +
+              guildName.value +
+              "\n" +
+              "Etiqueta: " +
+              guildTag.value +
+              "\n" +
+              "Nivel de regalo: " +
+              giftLevel.value +
+              "\n" +
+              "Miembros: " +
+              members.value +
+              "\n\n";
+
+            if (fiesta.checked)
+              mensaje += "Fiesta de Gremios: " + ligaFiesta.value + "\n";
+            if (arena.checked)
+              mensaje += "Arena de Gremios: " + ligaArena.value + "\n";
+            if (desafio.checked)
+              mensaje += "Desafío Gremial: " + ligaDesafio.value + "\n";
+            if (expedicion.checked)
+              mensaje += "Expedición: " + divisionExpedicion.value + "\n";
+            if (campeonato.checked)
+              mensaje += "Campeonato: " + divisionCampeonato.value + "\n";
+
+            mensaje += "\nMarco: " + marco.value + "\n";
+            if (marco.value === "Sí")
+              mensaje += "Detalle Marco: " + marcoDetalle.value + "\n";
+
+            const telefono = admin.value;
+            window.location.href =
+              "https://wa.me/" +
+              telefono +
+              "?text=" +
+              encodeURIComponent(mensaje);
+          });
+      });
+    </script>
+  </body>
+</html>

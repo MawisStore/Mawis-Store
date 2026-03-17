@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Soporte | Mawi's Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" href="logo1.png" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        min-height: 100vh;
+        background: url("fondo.jpeg") center/cover no-repeat;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .navbar {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 70px;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ff7ac8;
+      }
+
+      .menu {
+        display: flex;
+        gap: 30px;
+      }
+
+      .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .menu a:hover {
+        color: #ff7ac8;
+      }
+
+      /* ===== SOPORTE ===== */
+      .support-section {
+        position: relative;
+        z-index: 3;
+        width: 90%;
+        max-width: 800px;
+        margin: 80px auto;
+        padding: 40px;
+        border-radius: 25px;
+        backdrop-filter: blur(15px);
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 0 40px rgba(255, 105, 180, 0.2);
+      }
+
+      .support-title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #ff5fb2, #ffc1e6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      select,
+      textarea {
+        padding: 14px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      select:focus,
+      textarea:focus {
+        border-color: #ff7ac8;
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, #ff4fa3, #ff86c8);
+        padding: 14px;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+      }
+
+      .submit-btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* MENSAJE ÉXITO */
+      .success-message {
+        display: none;
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 15px;
+        background: rgba(0, 255, 150, 0.1);
+        border: 1px solid rgba(0, 255, 150, 0.4);
+        text-align: center;
+        animation: fadeIn 0.6s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 20px;
+        }
+        .support-section {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="overlay"></div>
+
+      <nav class="navbar">
+        <div class="logo">👑 Mawi's Store</div>
+        <div class="menu">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html">Catálogo</a>
+        </div>
+      </nav>
+
+      <div class="support-section">
+        <div class="support-title">SOPORTE</div>
+
+        <form
+          id="supportForm"
+          action="https://formsubmit.co/angelvela55@outlook.es"
+          method="POST"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+
+          <label>Selecciona el problema:</label>
+          <select id="tipoProblema" name="Tipo de Problema" required>
+            <option value="">-- Seleccionar --</option>
+            <option value="Bug">Bug</option>
+            <option value="Precios no actualizados">
+              Precios no actualizados
+            </option>
+            <option value="Pedido especial">Pedido especial</option>
+            <option value="Otro">Otro</option>
+          </select>
+
+          <div id="subOpciones" style="display: none">
+            <label>¿Qué categoría?</label>
+            <select name="Categoría">
+              <option value="Gemas">Gemas</option>
+              <option value="Diamantes">Diamantes</option>
+              <option value="Recursos">Recursos</option>
+              <option value="Boost">Boost</option>
+              <option value="Pases">Pases</option>
+            </select>
+          </div>
+
+          <div id="descripcionContainer" style="display: none">
+            <label>Describe el problema:</label>
+            <textarea name="Descripción" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Enviar Soporte</button>
+
+          <div class="success-message" id="successMessage">
+            ✅ Soporte enviado correctamente.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      const tipoProblema = document.getElementById("tipoProblema");
+      const subOpciones = document.getElementById("subOpciones");
+      const descripcionContainer = document.getElementById(
+        "descripcionContainer"
+      );
+      const form = document.getElementById("supportForm");
+      const successMessage = document.getElementById("successMessage");
+
+      tipoProblema.addEventListener("change", function () {
+        if (this.value === "") {
+          subOpciones.style.display = "none";
+          descripcionContainer.style.display = "none";
+          return;
+        }
+
+        descripcionContainer.style.display = "block";
+
+        if (this.value === "Precios no actualizados") {
+          subOpciones.style.display = "block";
+        } else {
+          subOpciones.style.display = "none";
+        }
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        })
+          .then((response) => {
+            successMessage.style.display = "block";
+            form.reset();
+            subOpciones.style.display = "none";
+            descripcionContainer.style.display = "none";
+          })
+          .catch((error) => {
+            alert("Hubo un error al enviar el soporte.");
+          });
+      });
+    </script>
+  </body>
+</html>

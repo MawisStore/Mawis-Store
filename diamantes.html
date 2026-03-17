@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Diamantes | Mawi's Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="logo1.png" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #050010;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      .hero {
+        min-height: 100vh;
+        background: radial-gradient(circle at top, #2a003f, #050010 70%);
+        position: relative;
+        padding-bottom: 80px;
+      }
+      .stars {
+        position: absolute;
+        inset: 0;
+        background: url("fondo.jpeg") center/cover repeat;
+        opacity: 0.25;
+      }
+
+      .navbar {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 70px;
+      }
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ff5fb2, #8ad6ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: 500;
+      }
+
+      .title {
+        text-align: center;
+        position: relative;
+        z-index: 3;
+        margin: 40px 0 50px;
+      }
+      .title h1 {
+        font-size: 62px;
+        background: linear-gradient(135deg, #6fd6ff, #ff5fb2, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .title p {
+        color: #ddd;
+        margin-top: 10px;
+        font-size: 20px;
+      }
+      .line {
+        width: 80%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #6fd6ff,
+          #ff5fb2,
+          transparent
+        );
+        margin: 25px auto 0;
+        opacity: 0.6;
+      }
+
+      .grid {
+        position: relative;
+        z-index: 3;
+        width: 92%;
+        margin: 40px auto 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+
+      .card {
+        background: rgba(10, 0, 25, 0.45);
+        border: 2px solid rgba(138, 214, 255, 0.35);
+        border-radius: 26px;
+        padding: 26px 22px 28px;
+        text-align: center;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 0 40px rgba(138, 214, 255, 0.15);
+        transition: 0.35s;
+      }
+      .card:hover {
+        transform: translateY(-10px) scale(1.02);
+      }
+
+      .diamond {
+        font-size: 52px;
+        margin-bottom: 12px;
+      }
+      .amount {
+        font-size: 28px;
+        font-weight: 700;
+        color: #bfe9ff;
+        margin-bottom: 6px;
+      }
+      .price {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: #ffd1ea;
+      }
+
+      .contact-btn {
+        background: linear-gradient(135deg, #6fd6ff, #ff4fa3);
+        border: none;
+        padding: 12px 32px;
+        border-radius: 30px;
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+      .modal-box {
+        background: rgba(5, 0, 20, 0.9);
+        border-radius: 26px;
+        padding: 30px;
+        width: 90%;
+        max-width: 420px;
+        text-align: center;
+        position: relative;
+      }
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 22px;
+        cursor: pointer;
+      }
+      .admin-btn {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 25px;
+        border: none;
+        background: linear-gradient(135deg, #6fd6ff, #ff4fa3);
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .cancel-btn {
+        margin-top: 15px;
+        background: transparent;
+        border: 1px solid #8ad6ff;
+        color: #cceeff;
+        padding: 10px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 1200px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .title h1 {
+          font-size: 44px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="stars"></div>
+
+      <nav class="navbar">
+        <div class="logo">💎 Mawi’s Store</div>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html">Catálogo</a>
+        </div>
+      </nav>
+
+      <div class="title">
+        <h1>💎 DIAMANTES</h1>
+        <p>Recarga segura, rápida y directa a tu cuenta</p>
+        <div class="line"></div>
+      </div>
+
+      <div class="grid">
+        <!-- TODOS LOS PAQUETES -->
+
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">209</div>
+          <div class="price">$2.40 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">524</div>
+          <div class="price">$5.20 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">1048</div>
+          <div class="price">$9.90 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">2096</div>
+          <div class="price">$19.30 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">3144</div>
+          <div class="price">$28.00 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">5240</div>
+          <div class="price">$45.90 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">6812</div>
+          <div class="price">$59.50 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">9956</div>
+          <div class="price">$86.50 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">19912</div>
+          <div class="price">$173.00 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">29868</div>
+          <div class="price">$260.00 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+        <div class="card">
+          <div class="diamond">💎</div>
+          <div class="amount">49989</div>
+          <div class="price">$435.00 USD</div>
+          <button class="contact-btn">Comprar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div class="modal-box">
+        <div class="close">✖</div>
+        <h2>Selecciona un admin</h2>
+        <p id="productName"></p>
+
+        <button class="admin-btn" data-phone="33768349928">
+          Ailin — +33 7 68 84 99 28
+        </button>
+        <button class="admin-btn" data-phone="5492932445245">
+          Mariana — +54 9 293 244 5245
+        </button>
+
+        <button class="cancel-btn">Cancelar</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let selectedProduct = "";
+        const modal = document.getElementById("modal");
+        const productName = document.getElementById("productName");
+
+        document.querySelectorAll(".contact-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const card = this.closest(".card");
+            const amount = card.querySelector(".amount").innerText;
+            const price = card.querySelector(".price").innerText;
+            selectedProduct = amount + " Diamantes - " + price;
+            productName.innerText = "Producto: " + selectedProduct;
+            modal.style.display = "flex";
+          });
+        });
+
+        document
+          .querySelector(".close")
+          .addEventListener("click", () => (modal.style.display = "none"));
+        document
+          .querySelector(".cancel-btn")
+          .addEventListener("click", () => (modal.style.display = "none"));
+
+        document.querySelectorAll(".admin-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            if (!selectedProduct) return;
+            const phone = this.getAttribute("data-phone");
+            const mensaje =
+              "Hola, quiero comprar: " +
+              selectedProduct +
+              " | Diamantes - Mawis Store";
+            window.location.href =
+              "https://wa.me/" + phone + "?text=" + encodeURIComponent(mensaje);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
